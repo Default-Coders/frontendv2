@@ -2,7 +2,7 @@
 
 Plataforma completa para gestão de acervo, catálogo digital, autenticação e controle de empréstimos, reservas e lista de espera da biblioteca escolar.
 
-![Logo da ETE](frontend/public/ete-logo.png)
+![Logo da ETE](public/ete-logo.png)
 
 ---
 
