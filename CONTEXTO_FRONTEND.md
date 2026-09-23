@@ -1,6 +1,6 @@
 # Contexto e Arquitetura do Frontend — Biblioteca Virtual ETE
 
-> Última atualização: 10 de setembro de 2026
+> Última atualização: 23 de setembro de 2026
 > Framework: Next.js 16 (App Router) / React 19 / TypeScript
 > Estilização: Tailwind CSS v4
 > Animações: GSAP (GreenSock) com ScrollTrigger
@@ -11,7 +11,7 @@ Documentação da arquitetura, fluxo visual, estados, rotas e componentes do fro
 
 ## 1. Visão Geral
 
-O frontend da Biblioteca Virtual ETE oferece uma experiência moderna de autoatendimento para estudantes e um sistema administrativo completo para os gestores da biblioteca da Escola Técnica Estadual (ETE).
+O frontend da Biblioteca Virtual ETE oferece uma experiência moderna de autoatendimento para estudantes e um sistema administrativo completo para os gestores da biblioteca da Escola Técnica Estadual (ETE) José Humberto de Moura Cavalcanti, na cidade de Limoeiro.
 
 A identidade visual segue o princípio de **retro-futurismo sofisticado + biblioteca digital + tecnologia**, conforme definido no GUIA_VISUAL_UX_V1.md.
 

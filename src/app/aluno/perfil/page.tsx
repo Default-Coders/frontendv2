@@ -17,17 +17,17 @@ interface StudentProfile {
 }
 
 const COURSES = [
-  { value: 'SYSTEMS_DEVELOPMENT', label: 'Desenvolvimento de Sistemas' },
-  { value: 'NUTRITION_AND_DIETETICS', label: 'Nutrição e Dietética' },
+  { value: 'Desenvolvimento de Sistemas', label: 'Desenvolvimento de Sistemas' },
+  { value: 'Nutrição e Dietética', label: 'Nutrição e Dietética' },
 ];
 
 const CLASSES = [
-  { value: 'FIRST_A', label: '1º ano A' },
-  { value: 'FIRST_B', label: '1º ano B' },
-  { value: 'SECOND_A', label: '2º ano A' },
-  { value: 'SECOND_B', label: '2º ano B' },
-  { value: 'THIRD_A', label: '3º ano A' },
-  { value: 'THIRD_B', label: '3º ano B' },
+  { value: '1º ano A', label: '1º ano A' },
+  { value: '1º ano B', label: '1º ano B' },
+  { value: '2º ano A', label: '2º ano A' },
+  { value: '2º ano B', label: '2º ano B' },
+  { value: '3º ano A', label: '3º ano A' },
+  { value: '3º ano B', label: '3º ano B' },
 ];
 
 export default function StudentProfilePage() {
@@ -54,8 +54,8 @@ export default function StudentProfilePage() {
       setName(data.name || '');
       setEmail(data.email || '');
       setPhone(maskPhone(data.phone || ''));
-      setCourse(data.course || 'SYSTEMS_DEVELOPMENT');
-      setSchoolClass(data.schoolClass || 'FIRST_A');
+      setCourse(data.course || 'Desenvolvimento de Sistemas');
+      setSchoolClass(data.schoolClass || '1º ano A');
     } catch (err) {
       toast.error(err instanceof Error ? err.message : 'Erro ao carregar dados do perfil.');
     } finally {
@@ -273,15 +273,15 @@ export default function StudentProfilePage() {
               Senha Atual
             </label>
             <PasswordInput
-                containerClassName="mt-1.5"
-                leftIcon={<Lock className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />}
-                required
-                value={currentPassword}
-                onChange={(e) => setCurrentPassword(e.target.value)}
-                placeholder="Sua senha atual..."
-                autoComplete="current-password"
-                className="w-full rounded-xl border border-slate-200 bg-transparent py-2.5 pl-10 text-sm text-slate-900 outline-none transition focus:border-blue-600 focus:ring-2 focus:ring-blue-600/10 dark:border-slate-800 dark:text-slate-100"
-              />
+              containerClassName="mt-1.5"
+              leftIcon={<Lock className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />}
+              required
+              value={currentPassword}
+              onChange={(e) => setCurrentPassword(e.target.value)}
+              placeholder="Sua senha atual..."
+              autoComplete="current-password"
+              className="w-full rounded-xl border border-slate-200 bg-transparent py-2.5 pl-10 text-sm text-slate-900 outline-none transition focus:border-blue-600 focus:ring-2 focus:ring-blue-600/10 dark:border-slate-800 dark:text-slate-100"
+            />
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
@@ -290,16 +290,16 @@ export default function StudentProfilePage() {
                 Nova Senha (min. 6 car.)
               </label>
               <PasswordInput
-                  containerClassName="mt-1.5"
-                  leftIcon={<Lock className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />}
-                  required
-                  minLength={6}
-                  value={newPassword}
-                  onChange={(e) => setNewPassword(e.target.value)}
-                  placeholder="Nova senha..."
-                  autoComplete="new-password"
-                  className="w-full rounded-xl border border-slate-200 bg-transparent py-2.5 pl-10 text-sm text-slate-900 outline-none transition focus:border-blue-600 focus:ring-2 focus:ring-blue-600/10 dark:border-slate-800 dark:text-slate-100"
-                />
+                containerClassName="mt-1.5"
+                leftIcon={<Lock className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />}
+                required
+                minLength={6}
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+                placeholder="Nova senha..."
+                autoComplete="new-password"
+                className="w-full rounded-xl border border-slate-200 bg-transparent py-2.5 pl-10 text-sm text-slate-900 outline-none transition focus:border-blue-600 focus:ring-2 focus:ring-blue-600/10 dark:border-slate-800 dark:text-slate-100"
+              />
             </div>
 
             <div>
@@ -307,16 +307,16 @@ export default function StudentProfilePage() {
                 Confirmar Nova Senha
               </label>
               <PasswordInput
-                  containerClassName="mt-1.5"
-                  leftIcon={<Lock className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />}
-                  required
-                  minLength={6}
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  placeholder="Repita a nova senha..."
-                  autoComplete="new-password"
-                  className="w-full rounded-xl border border-slate-200 bg-transparent py-2.5 pl-10 text-sm text-slate-900 outline-none transition focus:border-blue-600 focus:ring-2 focus:ring-blue-600/10 dark:border-slate-800 dark:text-slate-100"
-                />
+                containerClassName="mt-1.5"
+                leftIcon={<Lock className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />}
+                required
+                minLength={6}
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                placeholder="Repita a nova senha..."
+                autoComplete="new-password"
+                className="w-full rounded-xl border border-slate-200 bg-transparent py-2.5 pl-10 text-sm text-slate-900 outline-none transition focus:border-blue-600 focus:ring-2 focus:ring-blue-600/10 dark:border-slate-800 dark:text-slate-100"
+              />
             </div>
           </div>
         </div>
