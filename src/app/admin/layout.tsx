@@ -40,14 +40,16 @@ export default function AdminLayout({
   const [userEmail, setUserEmail] = useState("");
 
   useEffect(() => {
-    restoreTheme();
-    const timer = window.setTimeout(() => {
-      setUserName(getUserName() || "Administrador");
-      setUserEmail(getUserEmail() || "");
-      if (getUserRole() !== "ROLE_ADMIN") router.replace("/");
-    }, 0);
-    return () => window.clearTimeout(timer);
-  }, [router]);
+  restoreTheme();
+  const role = getUserRole();
+  if (!role) {
+    setTimeout(() => {
+      if (!getUserRole()) router.replace('/');
+    }, 500);
+    return;
+  }
+  if (role!== 'ROLE_ADMIN') router.replace('/');
+}, [router]);
 
   async function logout() {
     try {
