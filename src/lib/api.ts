@@ -8,7 +8,10 @@ export function assetUrl(path?: string | null) {
   return /^https?:\/\//.test(path) ? path : `${ASSET_URL}${path}`;
 }
 
-export async function apiFetch<T = unknown>(endpoint: string, options: RequestInit = {}): Promise<T> {
+export async function apiFetch<T = unknown>(
+  endpoint: string,
+  options: RequestInit = {}
+): Promise<T> {
   const headers: HeadersInit = {
     ...(!(options.body instanceof FormData) && { 'Content-Type': 'application/json' }),
     ...(options.headers || {}),
@@ -20,24 +23,27 @@ export async function apiFetch<T = unknown>(endpoint: string, options: RequestIn
     credentials: 'include',
   });
 
-  if (response.status === 401 || response.status === 403) {
-    clearAuthData();
-    if (typeof window !== 'undefined') {
-      window.location.href = '/';
-    }
+  if (response.status === 204) {
+    return null as T;
   }
 
   if (!response.ok) {
     const errorData = await response.json().catch(() => ({}));
-    const errorMessage = errorData.message ?? errorData.mensagem;
+    const errorMessage = errorData.mensagem ?? errorData.message;
     const message = Array.isArray(errorMessage)
       ? errorMessage.join(', ')
       : errorMessage || errorData.error || errorData.erro || 'Erro ao realizar requisição';
-    throw new Error(message);
-  }
 
-  if (response.status === 204) {
-    return null as T;
+    if (response.status === 401 || response.status === 403) {
+      if (typeof window !== 'undefined') {
+        const path = window.location.pathname;
+        if (path.startsWith('/admin') || path.startsWith('/aluno')) {
+          clearAuthData();
+        }
+      }
+    }
+
+    throw new Error(message);
   }
 
   return response.json() as Promise<T>;
